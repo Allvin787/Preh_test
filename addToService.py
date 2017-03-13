@@ -3,7 +3,7 @@ import random
 import pytest
 
 config = dict(
-    DRIVER='{SQL Server}',
+    DRIVER='{ODBC Driver 11 for SQL Server}',
     server='10.200.7.42',
     DATABASE='Alla_testy',
     UID='POLEN\a.vinnikova',

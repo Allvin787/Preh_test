@@ -1,53 +1,51 @@
-import pypyodbc as pyodbc
-import random
-import pytest
+#!/usr/bin/python
+import mysql.connector
+from mysql.connector import errorcode
+import sys, os, csv, re
 
-config = dict(
-    DRIVER='{SQL Server}',
-    server='10.200.7.42',
-    Trusted_connection='yes'
-   )
+config = {
+  'user': 'fabric',
+  'password': 'Fabpass1!',
+  'host': '10.200.7.188',
+  'database': 'SERWIS20',
+  'raise_on_warnings': True,
+}
 
-cnx = pyodbc.connect(**config)
+cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
-rng = random.randint(1, 10)
-a1 = (''.join([random.choice(list('QWERTYUIOPASDFGHJKLZXCVBNM')) for x in range(rng)]))
-a2 = (''.join([random.choice(list('123456789')) for x in range(rng)]))
-a3 = (''.join([random.choice(list('#$%*)@!~+')) for x in range(random.randint(1, 15))]))
-b = int(a2)+1
-Sn1 = a1+a2
-Sn2 = a1+str(b)
-SnrBoard11 = "NoRead", " ", Sn1, a3
-SnrBoard12 = "NoRead", " ", Sn2, a3
+duble = ("SELECT COUNT(*) - COUNT(DISTINCT SN) AS SN  FROM service")
 
-SnrBoard1 = random.choice(list(SnrBoard11))
-SnrBoard2 = random.choice(list(SnrBoard12))
-SnrBoard = SnrBoard1, SnrBoard2
+cursor.execute(duble)
+row = cursor.fetchall()
+for j in row:
+    print(row[0])
 
-with open('test.txt', 'a') as f:
-    f.write(SnrBoard1+"\n")
-    f.write(SnrBoard2+"\n")
-    f.write("#############" + "\n")
+query = ("INSERT INTO service "
+               "(`SN`,`status`,`problem_element`,`uid_in`, `stage_from`)"
+               "VALUES ('005D01098999','1','no','666','6000')")
+dublea = ("SELECT COUNT(*) - COUNT(DISTINCT SN) AS SN  FROM service")
 
-def initial_data(SnrBoard,SnrBoard2):
-
-
-    cursor.execute("insert into [MODI_Technisat].[dbo].[TechnisatResults] ([SnrBoard1],[SnrBoard2],[BackBoard1],[BackBoard2],[PanelCode],[State],[TestStartTime],[TestEndTime],[TestProgramName]) values(?, ?,'005D01228870','005D01228869','B02FA20010761',2,GETDATE(), GETDATE(),'HLP4 M N CD LED')", SnrBoard)
-    cnx.commit()
-
-    cursor.execute("exec MODI_Technisat.dbo.ModiInspectionJob")
-    cnx.commit()
-
-    sql = "SELECT * FROM [MODI_Technisat].[dbo].[TechnisatResults] where SnrBoard1 = '"+SnrBoard1+"'"
-    print(sql)
-    for row in cursor.execute(sql):
-        return row[6]
-
-
-def test_ModiInspectionJob_select_status_3():
-    assert initial_data(SnrBoard, SnrBoard1) == '3'
-    print(SnrBoard1, SnrBoard2)
-
-
+cursor.execute(query)
+cursor.execute(dublea)
+rowa= cursor.fetchall()
+for i in rowa:
+    print(rowa[0])
+if j == i:
+    print("NOT duble")
+else:
+    print("Yes")
+     
+cursor.close()
+cnx.close()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 

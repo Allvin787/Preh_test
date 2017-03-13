@@ -1,4 +1,4 @@
-import pypyodbc as pyodbc
+import pyodbc
 import random
 import pytest
 

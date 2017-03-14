@@ -6,8 +6,8 @@ config = dict(
     DRIVER='{ODBC Driver 13 for SQL Server}',
     server='10.200.7.42',
     DATABASE='Alla_testy',
-    UID='POLEN\a.vinnikova',
-    PWD='Preh1515',
+    UID='alla',
+    PWD='Alla',
     Trusted_connection='yes'
    )
 

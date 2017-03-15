@@ -2,11 +2,12 @@ import pyodbc
 
 config = dict(
     DRIVER='{FreeTDS}',
-    server='mssql',
+    server='10.200.7.42',
     database='Alla_testy',
-    username='alla',
-    password='Alla',
-    Trusted_connection='yes'
+    UID='alla',
+    PWD='Alla',
+    PORT= '1433', 
+    TDS_Version= '8'
    )
 
 try:

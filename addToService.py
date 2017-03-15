@@ -4,7 +4,7 @@ config = dict(
     DRIVER='{FreeTDS}',
     server='10.200.7.42',
     database='Alla_testy',
-    UID='a.vinnikova',
+    UID='alla',
     PWD='Preh1515',
     PORT= '1433', 
     TDS_Version= '8'
@@ -14,7 +14,7 @@ try:
     cnx = pyodbc.connect(**config)
     cursor = cnx.cursor()
     print("SUCCESS")
-    sql = "SELECT * FROM [Alla_Testy].[dbo].[result]"
+    sql = "SELECT * FROM MODI_Technisat].[dbo].[TechnisatResults]"
     print(sql)
     for row in cursor.execute(sql):
         print(row[6])

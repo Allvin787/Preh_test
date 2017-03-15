@@ -1,15 +1,15 @@
 import pyodbc
-import random
-import pytest
 
-config = dict(
-    DRIVER='{PostgreSQL}',
-    server='10.200.7.42',
-    DATABASE='Alla_testy',
-    UID='alla',
-    PWD='Alla',
-    Trusted_connection='yes'
-   )
+host = "10.200.7.42"
+database = "Alla_testy"
+username = "alla"
+password = "Alla"
 
-cnx = pyodbc.connect(**config)
-cursor = cnx.cursor()
+print ("DB CONNECT ATTEMPT")
+try:
+    cs = 'DSN=%s;UID=%s;PWD=%s;DATABASE=%s;' % (host, username, password, database)
+    cnxn = pyodbc.connect(cs)
+    print ("SUCCESS")
+except Exception as e:
+    print ("Error: " + str(e))
+

@@ -3,9 +3,9 @@ import pyodbc
 config = dict(
     DRIVER='{FreeTDS}',
     server='mssql',
-    database="Alla_testy",
-    username="alla",
-    password="Alla",
+    database='Alla_testy',
+    username='alla',
+    password='Alla',
     Trusted_connection='yes'
    )
 

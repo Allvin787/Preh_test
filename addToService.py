@@ -2,7 +2,7 @@ import pyodbc
 
 config = dict(
     DRIVER='{SQL Server}',
-    server='10.200.7.42',
+    server='mssql',
     database="Alla_testy",
     username="alla",
     password="Alla",

@@ -3,7 +3,7 @@ import pyodbc
 config = dict(
     DRIVER='{FreeTDS}',
     server='10.200.7.42',
-    database='MODI_Technisat',
+    database='Alla_Testy',
     UID='alla',
     PWD='Alla',
     PORT= '1433', 

@@ -1,7 +1,7 @@
 import pyodbc
 
 config = dict(
-    DRIVER='{FreeTDS}',
+    DRIVER='{PostgreSQL}',
     server='mssql',
     database='Alla_testy',
     username='alla',

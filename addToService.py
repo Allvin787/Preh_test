@@ -14,7 +14,7 @@ try:
     cnx = pyodbc.connect(**config)
     cursor = cnx.cursor()
     print("SUCCESS")
-    sql = "SELECT * FROM [MODI_Technisat].[dbo].[TechnisatResults] where SnrBoard1='017220000023'"
+    sql = "SELECT * FROM [Alla_Testy].[dbo].[result] where Mand='110'"
     print(sql)
     for row in cursor.execute(sql):
         print(row[6])

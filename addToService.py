@@ -40,7 +40,7 @@ def initial_data(SnrBoard,SnrBoard2):
 
 
     cursor.execute("insert into [MODI_Technisat].[dbo].[TechnisatResults] ([SnrBoard1],[SnrBoard2],[BackBoard1],[BackBoard2],[PanelCode],[State],[TestStartTime],[TestEndTime],[TestProgramName]) values(?, ?,'005D01228870','005D01228869','B02FA20010761',2,GETDATE(), GETDATE(),'HLP4 M N CD LED')", SnrBoard)
-    cnx.commit()
+    print(cnx.commit())
 
     cursor.execute("exec MODI_Technisat.dbo.ModiInspectionJob")
     cnx.commit()

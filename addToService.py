@@ -3,7 +3,7 @@ import pyodbc
 config = dict(
     DRIVER='{FreeTDS}',
     server='10.200.7.42',
-    database='Alla_Testy',
+    database='MODI_Technisat',
     UID='alla',
     PWD='Alla',
     PORT= '1433', 
@@ -14,7 +14,7 @@ try:
     cnx = pyodbc.connect(**config)
     cursor = cnx.cursor()
     print("SUCCESS")
-    sql = "SELECT TOP 10 [ID],[Mand],[TimeStamp] ,[SerialNum],[PCBNum],[OrderNum],[Result],[StationID],[rowguid] FROM [result]"
+    sql = "SELECT TOP 10 [ID],[SnrBoard1],[SnrBoard2],[BackBoard1],[BackBoard2],[PanelCode] ,[State],[TestStartTime] ,[TestEndTime] ,[TestProgramName] ,[FailElementID],[FailReason],[TechniSatFailMessage] ,[TesterID] FROM [MODI_Technisat].[dbo].[TechnisatResults]"
     print(sql)
     for row in cursor.execute(sql):
         print(row[6])

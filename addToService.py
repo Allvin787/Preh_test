@@ -1,6 +1,8 @@
 import pyodbc
 import random
 import pytest
+import sys
+
 
 config = dict(
     DRIVER='{FreeTDS}',
@@ -24,17 +26,18 @@ Sn1 = a1+a2
 Sn2 = a1+str(b)
 SnrBoard11 = "NoRead", " ", Sn1, a3
 SnrBoard12 = "NoRead", " ", Sn2, a3
-
+sys.stdout=open('test.txt', 'w')
 SnrBoard1 = random.choice(list(SnrBoard11))
 SnrBoard2 = random.choice(list(SnrBoard12))
 SnrBoard = SnrBoard1, SnrBoard2
-print(SnrBoard1)
-print(SnrBoard2)
-
-with open('\root\test.txt', 'a') as f:
-    f.write(SnrBoard1+"\n")
-    f.write(SnrBoard2+"\n")
-    f.write("#############" + "\n")
+print(SnrBoard1+"\n")
+print(SnrBoard2+"\n")
+print("#############" + "\n")
+#sys.stdout=open('test.txt', 'w')
+#with open('\root\', 'a') as f:
+    #f.write(SnrBoard1+"\n")
+    #f.write(SnrBoard2+"\n")
+    #f.write("#############" + "\n")
 
 def initial_data(SnrBoard,SnrBoard2):
 

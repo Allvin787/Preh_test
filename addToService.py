@@ -26,18 +26,18 @@ Sn1 = a1+a2
 Sn2 = a1+str(b)
 SnrBoard11 = "NoRead", " ", Sn1, a3
 SnrBoard12 = "NoRead", " ", Sn2, a3
-#sys.stdout=open('test.txt', 'w')
+sys.stdout=open('test.txt', 'a')
 SnrBoard1 = random.choice(list(SnrBoard11))
 SnrBoard2 = random.choice(list(SnrBoard12))
 SnrBoard = SnrBoard1, SnrBoard2
 print(SnrBoard1+"\n")
 print(SnrBoard2+"\n")
 print("#############" + "\n")
-sys.stdout=open('test.txt', 'w')
-with open('\root\', 'a') as f:
-    f.write(SnrBoard1+"\n")
-    f.write(SnrBoard2+"\n")
-    f.write("#############" + "\n")
+#sys.stdout=open('test.txt', 'w')
+#with open('\root\', 'a') as f:
+    #f.write(SnrBoard1+"\n")
+    #f.write(SnrBoard2+"\n")
+    #f.write("#############" + "\n")
 
 def initial_data(SnrBoard,SnrBoard2):
 
@@ -49,14 +49,14 @@ def initial_data(SnrBoard,SnrBoard2):
     cnx.commit()
 
     sql = "SELECT * FROM [MODI_Technisat].[dbo].[TechnisatResults] where SnrBoard1 = '"+SnrBoard1+"'"
-    print(sql)
+    #print(sql)
     for row in cursor.execute(sql):
         return row[6]
 
 
 def test_ModiInspectionJob_select_status_3():
     assert initial_data(SnrBoard, SnrBoard1) == '3'
-    print(SnrBoard1, SnrBoard2)
+    #print(SnrBoard1, SnrBoard2)
 
 
 

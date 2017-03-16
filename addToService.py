@@ -17,7 +17,7 @@ try:
     sql = "SELECT TOP 10 * FROM [MODI_Technisat].[dbo].[TechnisatResults]"
     print(sql)
     for row in cursor.execute(sql):
-        print(row[6])
+        print(row)
 except Exception as e:
     print ("Error: " + str(e))
 

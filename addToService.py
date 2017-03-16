@@ -34,7 +34,7 @@ print("#############")
 
 #sys.stdout=open('test.txt', 'a')
 #with open('\root\', 'a') as f:
-f=open('test.txt', 'a')
+f=open('test1.txt', 'a')
 f.write(SnrBoard1+"\n")
 f.write(SnrBoard2+"\n")
 f.write("#############" + "\n")

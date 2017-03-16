@@ -14,7 +14,7 @@ try:
     cnx = pyodbc.connect(**config)
     cursor = cnx.cursor()
     print("SUCCESS")
-    sql = "SELECT TOP 10 [ID],[SnrBoard1] FROM [MODI_Technisat].[dbo].[TechnisatResults]"
+    sql = "SELECT TOP 10 * FROM [MODI_Technisat].[dbo].[TechnisatResults]"
     print(sql)
     for row in cursor.execute(sql):
         print(row[6])

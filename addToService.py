@@ -2,7 +2,7 @@ import pyodbc
 import random
 import pytest
 import sys
-
+sys.stdout=open('test.txt', 'wa')
 
 config = dict(
     DRIVER='{FreeTDS}',
@@ -13,7 +13,6 @@ config = dict(
     PORT= '1433', 
     TDS_Version= '8'
    )
-
 
 cnx = pyodbc.connect(**config)
 cursor = cnx.cursor()
@@ -26,13 +25,14 @@ Sn1 = a1+a2
 Sn2 = a1+str(b)
 SnrBoard11 = "NoRead", " ", Sn1, a3
 SnrBoard12 = "NoRead", " ", Sn2, a3
-sys.stdout=open('test.txt', 'a')
 SnrBoard1 = random.choice(list(SnrBoard11))
 SnrBoard2 = random.choice(list(SnrBoard12))
 SnrBoard = SnrBoard1, SnrBoard2
+
 print(SnrBoard1+"\n")
 print(SnrBoard2+"\n")
 print("#############" + "\n")
+
 #sys.stdout=open('test.txt', 'w')
 #with open('\root\', 'a') as f:
     #f.write(SnrBoard1+"\n")
@@ -40,7 +40,6 @@ print("#############" + "\n")
     #f.write("#############" + "\n")
 
 def initial_data(SnrBoard,SnrBoard2):
-
 
     cursor.execute("insert into [MODI_Technisat].[dbo].[TechnisatResults] ([SnrBoard1],[SnrBoard2],[BackBoard1],[BackBoard2],[PanelCode],[State],[TestStartTime],[TestEndTime],[TestProgramName]) values(?, ?,'005D01228870','005D01228869','B02FA20010761',2,GETDATE(), GETDATE(),'HLP4 M N CD LED')", SnrBoard)
     cnx.commit()

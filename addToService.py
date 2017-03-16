@@ -31,7 +31,7 @@ SnrBoard = SnrBoard1, SnrBoard2
 print(SnrBoard1)
 print(SnrBoard2)
 
-with open('test.txt', 'a') as f:
+with open('\root\test.txt', 'a') as f:
     f.write(SnrBoard1+"\n")
     f.write(SnrBoard2+"\n")
     f.write("#############" + "\n")

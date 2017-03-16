@@ -52,7 +52,7 @@ def initial_data(SnrBoard,SnrBoard2):
 
 
 def test_ModiInspectionJob_select_status_3():
-    assert initial_data(SnrBoard, SnrBoard1) == '4'
+    assert initial_data(SnrBoard, SnrBoard1) == '3'
     print(SnrBoard1, SnrBoard2)
 
 

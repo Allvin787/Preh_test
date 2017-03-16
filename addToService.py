@@ -28,6 +28,7 @@ SnrBoard12 = "NoRead", " ", Sn2, a3
 SnrBoard1 = random.choice(list(SnrBoard11))
 SnrBoard2 = random.choice(list(SnrBoard12))
 SnrBoard = SnrBoard1, SnrBoard2
+print(SnrBoard)
 
 with open('test.txt', 'a') as f:
     f.write(SnrBoard1+"\n")

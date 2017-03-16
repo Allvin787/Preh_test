@@ -29,8 +29,8 @@ SnrBoard1 = random.choice(list(SnrBoard11))
 SnrBoard2 = random.choice(list(SnrBoard12))
 SnrBoard = SnrBoard1, SnrBoard2
 
-print("SnrBoard1")
-print("SnrBoard2")
+print(SnrBoard1)
+print(SnrBoard2)
 print("#############")
 
 #sys.stdout=open('test.txt', 'w')

@@ -2,7 +2,7 @@ import pyodbc
 import random
 import pytest
 import sys
-sys.stdout=open('test.txt', 'a')
+sys.stdout=open('test.txt', 'a+')
 
 config = dict(
     DRIVER='{FreeTDS}',

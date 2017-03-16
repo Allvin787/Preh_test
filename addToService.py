@@ -2,7 +2,7 @@ import pyodbc
 import random
 import pytest
 import sys
-sys.stdout=open('test.txt', 'wa')
+sys.stdout=open('test.txt', 'w+')
 
 config = dict(
     DRIVER='{FreeTDS}',
@@ -29,9 +29,9 @@ SnrBoard1 = random.choice(list(SnrBoard11))
 SnrBoard2 = random.choice(list(SnrBoard12))
 SnrBoard = SnrBoard1, SnrBoard2
 
-print(SnrBoard1+"\n")
-print(SnrBoard2+"\n")
-print("#############" + "\n")
+print(SnrBoard1")
+print(SnrBoard2")
+print("#############")
 
 #sys.stdout=open('test.txt', 'w')
 #with open('\root\', 'a') as f:

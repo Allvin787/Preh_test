@@ -39,8 +39,8 @@ with open('test.txt', 'a') as f:
 def initial_data(SnrBoard,SnrBoard2):
 
 
-    print(cursor.execute("insert into [MODI_Technisat].[dbo].[TechnisatResults] ([SnrBoard1],[SnrBoard2],[BackBoard1],[BackBoard2],[PanelCode],[State],[TestStartTime],[TestEndTime],[TestProgramName]) values(?, ?,'005D01228870','005D01228869','B02FA20010761',2,GETDATE(), GETDATE(),'HLP4 M N CD LED')", SnrBoard))
-    cnx.commit()
+    cursor.execute("insert into [MODI_Technisat].[dbo].[TechnisatResults] ([SnrBoard1],[SnrBoard2],[BackBoard1],[BackBoard2],[PanelCode],[State],[TestStartTime],[TestEndTime],[TestProgramName]) values(?, ?,'005D01228870','005D01228869','B02FA20010761',2,GETDATE(), GETDATE(),'HLP4 M N CD LED')", SnrBoard)
+     print(cnx.commit())
 
     cursor.execute("exec MODI_Technisat.dbo.ModiInspectionJob")
     cnx.commit()
@@ -52,7 +52,7 @@ def initial_data(SnrBoard,SnrBoard2):
 
 
 def test_ModiInspectionJob_select_status_3():
-    assert initial_data(SnrBoard, SnrBoard1) == '3'
+    assert initial_data(SnrBoard, SnrBoard1) == '4'
     print(SnrBoard1, SnrBoard2)
 
 
